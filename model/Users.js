@@ -3,7 +3,15 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        trim: true,
+        minlength: 3
+    },
+    emial:{
+        type: String,
+        required: true,
+        unique: true
     },
     fistName: {
         type: String,
@@ -17,10 +25,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now
-    }
+    timestamp: true
 })
 
 const User = mongoose.model('User', UserSchema);
