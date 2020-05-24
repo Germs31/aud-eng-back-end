@@ -3,7 +3,8 @@ const connectionString = process.env.MONGO_URI;
 
 mongoose.connect(connectionString, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 mongoose.connection.on('connected', () => {

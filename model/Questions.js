@@ -9,7 +9,10 @@ const QuestionSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    timestamp: true
+    created: {
+        type: Date,
+        default: Date.now
+    }
 });
 
 const Question = mongoose.model('Question', QuestionSchema);

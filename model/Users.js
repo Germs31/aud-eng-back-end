@@ -8,12 +8,12 @@ const UserSchema = new mongoose.Schema({
         trim: true,
         minlength: 3
     },
-    emial:{
+    email:{
         type: String,
         required: true,
         unique: true
     },
-    fistName: {
+    firstName: {
         type: String,
         required: true
     },
@@ -25,7 +25,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    timestamp: true
+    created: {
+        type: Date,
+        default: Date.now
+    }
 })
 
 const User = mongoose.model('User', UserSchema);
