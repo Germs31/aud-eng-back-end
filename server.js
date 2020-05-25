@@ -9,6 +9,11 @@ require('./db/db');
 
 app.use(cors());
 app.use(express.json());
+app.use(session({
+    secret: 'some cool word',
+    resave: false,
+    saveUninitialized: false
+}));
 
 const userRouter = require('./routes/user');
 const questionRouter = require('./routes/question');
