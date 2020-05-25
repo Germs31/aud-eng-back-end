@@ -1,5 +1,21 @@
 const mongoose = require('mongoose');
 
+const AnswerSchema = new mongoose.Schema({
+    question: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Questions"
+    },
+    body:{
+        type: String,
+        required: true,
+        minlength: 2
+    },
+    answered: {
+        type: Date,
+        default: Date.now
+    }
+});
+
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -28,6 +44,11 @@ const UserSchema = new mongoose.Schema({
     created: {
         type: Date,
         default: Date.now
+    },
+    answers: [AnswerSchema],
+    questions: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Questions"
     }
 })
 

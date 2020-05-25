@@ -12,6 +12,10 @@ const QuestionSchema = new mongoose.Schema({
     created: {
         type: Date,
         default: Date.now
+    },
+    created_by:{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Users"
     }
 });
 
